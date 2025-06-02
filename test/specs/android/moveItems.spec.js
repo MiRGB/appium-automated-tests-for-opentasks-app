@@ -1,0 +1,46 @@
+import { testItem1, testItem2 } from "../../data/data";
+import AddTaskScreen from "../../screenObjects/android/addTask.screen";
+import DeleteChecklistItemScreen from "../../screenObjects/android/deleteChecklistItem.screen";
+import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
+
+describe('Move items', () => {
+    it('add task', async () => {
+        await MoveItemsScreen.addTask();
+        await MoveItemsScreen.saveTask();
+    });
+
+    it('add 2 items from summary screen', async () => {
+        // add 2 items
+        await MoveItemsScreen.addNewItemBtn.click();
+        await MoveItemsScreen.itemTitleInput.setValue(testItem1);
+        await MoveItemsScreen.addNewItemBtn.click();
+        await MoveItemsScreen.itemTitleInput.setValue(testItem2);
+        await MoveItemsScreen.inProcessElement.click();
+
+        // assertion
+        await MoveItemsScreen.itemElement().waitForDisplayed({ timeout: 5000 });
+        await expect(MoveItemsScreen.itemElement()).toBeExisting();
+    });
+
+    it('drag and drop', async () => {
+        // drag and drop
+        await MoveItemsScreen.dragAndDrop();
+
+        // assertion
+        await MoveItemsScreen.firstItemOnChecklist.waitForDisplayed({ timeout: 5000 });
+        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(testItem2);
+    });
+
+    it('verify after return from main screen', async () => {
+        // go back to main screen
+        await AddTaskScreen.backBtn.click();
+
+        // enter to task screen again
+        await DeleteChecklistItemScreen.myTasksBtn.click();
+        await DeleteChecklistItemScreen.countElement.click();
+
+        // assertion
+        await MoveItemsScreen.firstItemOnChecklist.waitForDisplayed({ timeout: 5000 });
+        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(testItem2);
+    });
+});
