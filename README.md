@@ -4,6 +4,11 @@ This project contains a set of automated tests for the OpenTasks mobile app, usi
 
 The OpenTasks app (version **1.4.2**) can be downloaded from [F-Droid](https://f-droid.org/packages/org.dmfs.tasks/).
 
+## Demo
+
+You can view the most recent test results in the **Allure Report** hosted on GitHub Pages:  
+👉 [View Allure Test Report](https://mirgb.github.io/Appium_automated_tests_for_OpenTasks_app/)
+
 ## Technologies and Tools
 
 - **WebDriverIO** - Test automation framework
@@ -62,3 +67,8 @@ To view the generated Allure report, you can open it in your browser by running 
 `npx allure open`
 
 This command will open the most recent Allure report in your default browser. The reports contain detailed information about your test sessions.
+
+### Demo Link:
+Make sure to check the Allure report on GitHub Pages for detailed test results:
+
+👉 [View Allure Test Report](https://mirgb.github.io/Appium_automated_tests_for_OpenTasks_app/)
