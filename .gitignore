@@ -1,5 +1,6 @@
 node_modules/
 app/
+logs/
 allure-report/
 allure-results/
 .env
