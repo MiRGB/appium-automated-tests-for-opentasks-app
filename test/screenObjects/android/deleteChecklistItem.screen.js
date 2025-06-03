@@ -13,6 +13,10 @@ class DeleteChecklistItemScreen {
         return $('//*[@text="My tasks"]');
     }
 
+    get backBtn() {
+        return $('~Navigate up');
+    }
+
     get countElement() {
         return $('//android.widget.TextView[@resource-id="org.dmfs.tasks:id/checkbox_item_count"]');
     }

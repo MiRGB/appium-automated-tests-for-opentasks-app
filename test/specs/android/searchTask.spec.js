@@ -1,5 +1,4 @@
 import { taskTitle1 } from "../../data/data";
-import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 import SearchTaskScreen from "../../screenObjects/android/searchTask.screen";
 
@@ -11,7 +10,7 @@ describe('Search task', () => {
 
   it('go to search screen', async () => {
     // go to main screen
-    await AddTaskScreen.backBtn.click();
+    await MoveItemsScreen.backBtn.click();
 
     // go to search screen
     await SearchTaskScreen.searchNav.click();

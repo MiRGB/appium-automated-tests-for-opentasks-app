@@ -1,5 +1,4 @@
 import { checklistItems } from "../../data/data";
-import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import DeleteChecklistItemScreen from "../../screenObjects/android/deleteChecklistItem.screen";
 import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 
@@ -39,7 +38,7 @@ describe('Move items', () => {
 
     it('verify after return from main screen', async () => {
         // go back to main screen
-        await AddTaskScreen.backBtn.click();
+        await MoveItemsScreen.backBtn.click();
 
         // enter to task screen again
         await DeleteChecklistItemScreen.myTasksBtn.click();

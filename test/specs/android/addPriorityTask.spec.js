@@ -1,6 +1,5 @@
 import { priorityTaskNumber } from "../../data/data";
 import AddPriorityTaskScreen from "../../screenObjects/android/addPriorityTask.screen";
-import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 
 describe('Add priority task', () => {
@@ -26,8 +25,8 @@ describe('Add priority task', () => {
 
   it('save task and verify priority', async () => {
     // save task
-    await AddTaskScreen.saveTaskBtn.click();
-    await AddTaskScreen.backBtn.click();
+    await MoveItemsScreen.saveTask();
+    await MoveItemsScreen.backBtn.click();
 
     // go to priority screen
     await AddPriorityTaskScreen.priorityNav.click();

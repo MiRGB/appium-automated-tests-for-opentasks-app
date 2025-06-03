@@ -1,5 +1,4 @@
 import { taskTitle1, checklistItems } from "../../data/data";
-import AddTaskScreen from "./addTask.screen";
 import CompleteTaskByStepsScreen from "./completeTaskBySteps.screen";
 import MoveItemsScreen from "./moveItems.screen";
 
@@ -29,7 +28,7 @@ class ProgressTaskScreen {
         await expect(MoveItemsScreen.itemElement()).toBeExisting();
     
         // go to main screen
-        await AddTaskScreen.backBtn.click();
+        await MoveItemsScreen.backBtn.click();
     }
 
     async enterNavAndTask() {

@@ -56,6 +56,10 @@ class MoveItemsScreen {
         return $('//*[@text="in process"]');
     }
 
+    get backBtn() {
+        return $('~Navigate up');
+    }
+
     async dragAndDrop() {
         const source = await $('(//android.widget.ImageView[@resource-id="org.dmfs.tasks:id/drag_handle"])[2]');
         const target = await $('(//android.widget.ImageView[@resource-id="org.dmfs.tasks:id/drag_handle"])[3]');

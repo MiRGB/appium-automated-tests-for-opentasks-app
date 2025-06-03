@@ -1,5 +1,4 @@
 import { itemsNumber2, itemsNumber3 } from "../../data/data";
-import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import CompleteTaskByStepsScreen from "../../screenObjects/android/completeTaskBySteps.screen";
 import DeleteChecklistItemScreen from "../../screenObjects/android/deleteChecklistItem.screen";
 
@@ -29,7 +28,7 @@ describe('Delete checklist item', () => {
 
   it('go back to main screen and verify items number', async () => {
     // back to main screen
-    await AddTaskScreen.backBtn.click();
+    await DeleteChecklistItemScreen.backBtn.click();
 
     // assertion
     await DeleteChecklistItemScreen.countElement.waitForDisplayed({ timeout: 5000 });
