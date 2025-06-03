@@ -1,4 +1,4 @@
-import { taskTitle1, testTextList1, testItem1 } from "../../data/data";
+import { taskTitle1, testTextList1, checklistItems } from "../../data/data";
 import AddTaskScreen from "./addTask.screen";
 
 class MoveItemsScreen {
@@ -15,9 +15,16 @@ class MoveItemsScreen {
 
         // add checklist
         await AddTaskScreen.addChecklistBtn.click();
+
+        // assertion
         await AddTaskScreen.checklistInput.waitForDisplayed({ timeout: 5000 });
         await expect(AddTaskScreen.checklistInput).toBeDisplayed();
+
+        // set text element on list
         await AddTaskScreen.checklistInput.setValue(testTextList1);
+
+        // assertion
+        await expect(AddTaskScreen.checklistInput).toHaveText(testTextList1);
     }
 
     async saveTask() {
@@ -27,6 +34,8 @@ class MoveItemsScreen {
         // assertion
         await AddTaskScreen.taskName.waitForDisplayed({ timeout: 5000 });
         await expect(AddTaskScreen.taskName).toHaveText(taskTitle1);
+
+        // assertion
         await AddTaskScreen.checklistName.waitForDisplayed({ timeout: 5000 });
         await expect(AddTaskScreen.checklistName).toHaveText(testTextList1);
     }
@@ -39,7 +48,7 @@ class MoveItemsScreen {
         return $('//*[@text="Item title"]');
     }
 
-    itemElement(text = testItem1) {
+    itemElement(text = checklistItems.testItem1) {
         return $(`//*[@text="${text}"]`);
     }
 

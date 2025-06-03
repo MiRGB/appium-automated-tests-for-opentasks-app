@@ -1,7 +1,7 @@
-import { testItem1 } from "../../data/data";
+import { checklistItems } from "../../data/data";
 
 class DeleteChecklistItemScreen {
-    itemToDelete(text = testItem1) {
+    itemToDelete(text = checklistItems.testItem1) {
         return $(`//*[@text="${text}"]`);
     }
 

@@ -1,8 +1,8 @@
-import { clockTime, hour12, minute45, timeAM } from "../../data/data";
+import { clockTime, clockInfo } from "../../data/data";
 import DateVerifyScreen from "../../screenObjects/android/dateVerify.screen";
 
 describe('Date verify', () => {
-  it('add task', async () => {
+  it('add task and verify', async () => {
     await DateVerifyScreen.addTaskAndTitle();
   });
 
@@ -21,7 +21,7 @@ describe('Date verify', () => {
     await DateVerifyScreen.nextMonthBtn.click();
 
     // select date
-    await DateVerifyScreen.selectDay.click();
+    await DateVerifyScreen.selectDay().click();
 
 
     // save new date in variable
@@ -48,8 +48,9 @@ describe('Date verify', () => {
     await DateVerifyScreen.newMinute().click();
     await DateVerifyScreen.newTimeOfDay().click();
 
-    await expect(DateVerifyScreen.clockHours).toHaveText(hour12);
-    await expect(DateVerifyScreen.clockMinutes).toHaveText(minute45);
+    // assertion
+    await expect(DateVerifyScreen.clockHours).toHaveText(clockInfo.hour12);
+    await expect(DateVerifyScreen.clockMinutes).toHaveText(clockInfo.minute45);
   });
   
   it('change clock to different mode and save the time', async () => {
@@ -60,9 +61,9 @@ describe('Date verify', () => {
     await DateVerifyScreen.newClockHeader.waitForDisplayed({ timeout: 5000 });
     await expect(DateVerifyScreen.newClockHeader).toBeDisplayed();
 
-    await expect(DateVerifyScreen.newClockHour).toHaveText(hour12);
-    await expect(DateVerifyScreen.newClockMinutes).toHaveText(minute45);
-    await expect(DateVerifyScreen.newClockDayTime).toHaveText(timeAM);
+    await expect(DateVerifyScreen.newClockHour).toHaveText(clockInfo.hour12);
+    await expect(DateVerifyScreen.newClockMinutes).toHaveText(clockInfo.minute45);
+    await expect(DateVerifyScreen.newClockDayTime).toHaveText(clockInfo.timeAM);
 
     // accept time
     await DateVerifyScreen.acceptTimeBtn.click();

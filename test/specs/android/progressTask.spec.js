@@ -1,9 +1,9 @@
-import { barValue60, testTextList1, testItem5, value100 } from "../../data/data";
+import { barValue60, testTextList1, checklistItems, progressValues } from "../../data/data";
 import CompleteTaskByStepsScreen from "../../screenObjects/android/completeTaskBySteps.screen";
 import ProgressTaskScreen from "../../screenObjects/android/progressTask.screen";
 
 describe('Progress task', () => {
-  it('create the task with 4 items', async () => {
+  it('create the task with 4 items and verify', async () => {
     // add task with 4 items
     await ProgressTaskScreen.addTask4Items();
   });
@@ -19,20 +19,26 @@ describe('Progress task', () => {
 
   it('complete the task step by step and add new item', async () => {
     // complete every part
-    await CompleteTaskByStepsScreen.firstCheckbox.waitForDisplayed({ timeout: 5000 });
-    await CompleteTaskByStepsScreen.firstCheckbox.click();
-    await CompleteTaskByStepsScreen.secondCheckbox.click();
-    await CompleteTaskByStepsScreen.thirdCheckbox.click();
-    await ProgressTaskScreen.fourthCheckbox.click();
+    const checkboxes = [
+      CompleteTaskByStepsScreen.firstCheckbox,
+      CompleteTaskByStepsScreen.secondCheckbox,
+      CompleteTaskByStepsScreen.thirdCheckbox,
+      ProgressTaskScreen.fourthCheckbox
+    ];
+
+    for (const checkbox of checkboxes) {
+      await checkbox.waitForDisplayed({ timeout: 5000 });
+      await checkbox.click();
+    }
 
     // assertion
-    await expect(CompleteTaskByStepsScreen.progress100()).toHaveText(value100);
+    await expect(CompleteTaskByStepsScreen.progress100()).toHaveText(progressValues.value100);
   });
 
   it('add additional item and verify progress bar', async () => {
     // add additional item
     await ProgressTaskScreen.addItemBtn.click();
-    await ProgressTaskScreen.newItemInput.setValue(testItem5);
+    await ProgressTaskScreen.newItemInput.setValue(checklistItems.testItem5);
     await ProgressTaskScreen.progressStatus.click();
     await ProgressTaskScreen.fourthCheckbox.click();
 

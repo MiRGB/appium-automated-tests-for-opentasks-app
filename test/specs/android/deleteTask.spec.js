@@ -2,7 +2,7 @@ import { taskTitle1 } from "../../data/data";
 import DeleteTaskScreen from "../../screenObjects/android/deleteTask.screen";
 
 describe('Delete task', () => {
-  it('add and save the task', async () => {
+  it('add and save the task and verify', async () => {
     await DeleteTaskScreen.addAndSaveTask();
   });
 

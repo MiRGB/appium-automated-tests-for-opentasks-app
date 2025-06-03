@@ -1,20 +1,26 @@
-import { testItem1, testItem2 } from "../../data/data";
+import { checklistItems } from "../../data/data";
 import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import DeleteChecklistItemScreen from "../../screenObjects/android/deleteChecklistItem.screen";
 import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 
 describe('Move items', () => {
-    it('add task', async () => {
+    it('add task and verify', async () => {
         await MoveItemsScreen.addTask();
         await MoveItemsScreen.saveTask();
     });
 
     it('add 2 items from summary screen', async () => {
         // add 2 items
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem1);
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem2);
+        const items = [
+            checklistItems.testItem1,
+            checklistItems.testItem2
+        ];
+
+        for (const item of items) {
+            await MoveItemsScreen.addNewItemBtn.click();
+            await MoveItemsScreen.itemTitleInput.setValue(item);
+        }
+
         await MoveItemsScreen.inProcessElement.click();
 
         // assertion
@@ -28,7 +34,7 @@ describe('Move items', () => {
 
         // assertion
         await MoveItemsScreen.firstItemOnChecklist.waitForDisplayed({ timeout: 5000 });
-        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(testItem2);
+        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(checklistItems.testItem2);
     });
 
     it('verify after return from main screen', async () => {
@@ -41,6 +47,6 @@ describe('Move items', () => {
 
         // assertion
         await MoveItemsScreen.firstItemOnChecklist.waitForDisplayed({ timeout: 5000 });
-        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(testItem2);
+        await expect(MoveItemsScreen.firstItemOnChecklist).toHaveText(checklistItems.testItem2);
     });
 });

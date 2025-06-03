@@ -1,10 +1,10 @@
 
-import { taskTitle1, value100, value33, value66 } from "../../data/data";
+import { taskTitle1, progressValues } from "../../data/data";
 import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import CompleteTaskByStepsScreen from "../../screenObjects/android/completeTaskBySteps.screen";
 
 describe('Complete the task by steps', () => {
-  it('add task with 3 items', async () => {
+  it('add task with 3 items and verify', async () => {
     await CompleteTaskByStepsScreen.addTask3Items();
   });
 
@@ -32,19 +32,19 @@ describe('Complete the task by steps', () => {
     await CompleteTaskByStepsScreen.firstCheckbox.click();
 
     // verify correct value of progress
-    await expect(CompleteTaskByStepsScreen.progress33()).toHaveText(value33);
+    await expect(CompleteTaskByStepsScreen.progress33()).toHaveText(progressValues.value33);
 
     // complete second part
     await CompleteTaskByStepsScreen.secondCheckbox.click();
 
     // verify correct value of progress
-    await expect(CompleteTaskByStepsScreen.progress66()).toHaveText(value66);
+    await expect(CompleteTaskByStepsScreen.progress66()).toHaveText(progressValues.value66);
 
     // complete last part
     await CompleteTaskByStepsScreen.thirdCheckbox.click();
 
     // verify correct value of progress
-    await expect(CompleteTaskByStepsScreen.progress100()).toHaveText(value100);
+    await expect(CompleteTaskByStepsScreen.progress100()).toHaveText(progressValues.value100);
   });
 
   it('verify the correct place of the done task', async () => {

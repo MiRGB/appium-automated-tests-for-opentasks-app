@@ -4,7 +4,7 @@ import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 import SearchTaskScreen from "../../screenObjects/android/searchTask.screen";
 
 describe('Search task', () => {
-  it('add task', async () => {
+  it('add task and verify', async () => {
     await MoveItemsScreen.addTask();
     await MoveItemsScreen.saveTask();
   });

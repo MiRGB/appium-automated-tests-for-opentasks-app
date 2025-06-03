@@ -1,23 +1,27 @@
-import { taskTitle1, testItem1, testItem2, testItem3, testItem4 } from "../../data/data";
+import { taskTitle1, checklistItems } from "../../data/data";
 import AddTaskScreen from "./addTask.screen";
 import CompleteTaskByStepsScreen from "./completeTaskBySteps.screen";
 import MoveItemsScreen from "./moveItems.screen";
 
 class ProgressTaskScreen {
     async addTask4Items() {
-        // add task with 3 items
+        // add task
         await MoveItemsScreen.addTask();
         await MoveItemsScreen.saveTask();
-    
-        // add 3 items
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem1);
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem2);
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem3);
-        await MoveItemsScreen.addNewItemBtn.click();
-        await MoveItemsScreen.itemTitleInput.setValue(testItem4);
+
+        // add 4 items
+        const testItems = [
+            checklistItems.testItem1,
+            checklistItems.testItem2,
+            checklistItems.testItem3,
+            checklistItems.testItem4
+        ];
+
+        for (const testItem of testItems) {
+            await MoveItemsScreen.addNewItemBtn.click();
+            await MoveItemsScreen.itemTitleInput.setValue(testItem);
+        }
+
         await MoveItemsScreen.inProcessElement.click();
         
         // assertion

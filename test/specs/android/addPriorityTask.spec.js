@@ -4,7 +4,7 @@ import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import MoveItemsScreen from "../../screenObjects/android/moveItems.screen";
 
 describe('Add priority task', () => {
-  it('add task', async () => {
+  it('add task and verify', async () => {
     await MoveItemsScreen.addTask();
   });
 
@@ -18,6 +18,10 @@ describe('Add priority task', () => {
     // set priority to medium
     await AddPriorityTaskScreen.priorityBtn.click();
     await AddPriorityTaskScreen.mediumPrioritySelect.click();
+
+    // assertion
+    await AddPriorityTaskScreen.priorityMedium.waitForDisplayed({ timeout: 5000 });
+    await expect(AddPriorityTaskScreen.priorityMedium).toBeDisplayed();
   });
 
   it('save task and verify priority', async () => {

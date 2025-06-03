@@ -1,4 +1,4 @@
-import { clockTime, hour12, minute45, taskTitle1, timeAM } from "../../data/data";
+import { clockTime, clockInfo, taskTitle1, dayToSelect } from "../../data/data";
 import AddTaskScreen from "./addTask.screen";
 
 class DateVerifyScreen {
@@ -8,6 +8,10 @@ class DateVerifyScreen {
         
         // add task title
         await AddTaskScreen.taskTitleInput.setValue(taskTitle1);
+
+        // assertion
+        await AddTaskScreen.taskStatusInput().waitForDisplayed({ timeout: 5000 });
+        await expect(AddTaskScreen.taskStatusInput()).toBeDisplayed();
     }
 
     get startDateBtn() {
@@ -22,8 +26,8 @@ class DateVerifyScreen {
         return $('~Next month');
     }
 
-    get selectDay() {
-        return $("//android.view.View[@text='16']");
+    selectDay(text = dayToSelect) {
+        return $(`//android.view.View[@text='${text}']`);
     }
 
     get newDateVariable() {
@@ -42,15 +46,15 @@ class DateVerifyScreen {
         return $('//android.view.View[@resource-id="android:id/radial_picker"]');
     }
 
-    newHour(text = hour12) {
+    newHour(text = clockInfo.hour12) {
         return $(`~${text}`);
     }
 
-    newMinute(text = minute45) {
+    newMinute(text = clockInfo.minute45) {
         return $(`~${text}`);
     }
 
-    newTimeOfDay(text = timeAM) {
+    newTimeOfDay(text = clockInfo.timeAM) {
         return $(`//*[@text="${text}"]`);
     }
 

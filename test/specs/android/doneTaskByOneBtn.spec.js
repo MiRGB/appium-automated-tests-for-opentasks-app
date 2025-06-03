@@ -4,7 +4,7 @@ import DeleteTaskScreen from "../../screenObjects/android/deleteTask.screen";
 import DoneTaskByOneBtnScreen from "../../screenObjects/android/doneTaskByOneBtn.screen";
 
 describe('Done the task by one button', () => {
-    it('add task with 3 items', async () => {
+    it('add task with 3 items and verify', async () => {
         await CompleteTaskByStepsScreen.addTask3Items();
     });
 

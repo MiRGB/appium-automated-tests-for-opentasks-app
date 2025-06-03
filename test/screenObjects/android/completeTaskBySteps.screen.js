@@ -1,4 +1,4 @@
-import { taskTitle1, testItem1, testItem2, testItem3, value100, value33, value66 } from "../../data/data";
+import { taskTitle1, checklistItems, progressValues } from "../../data/data";
 import AddTaskScreen from "./addTask.screen";
 import MoveItemsScreen from "./moveItems.screen";
 
@@ -9,12 +9,17 @@ class CompleteTaskByStepsScreen {
     await MoveItemsScreen.saveTask();
 
     // add 3 items
-    await MoveItemsScreen.addNewItemBtn.click();
-    await MoveItemsScreen.itemTitleInput.setValue(testItem1);
-    await MoveItemsScreen.addNewItemBtn.click();
-    await MoveItemsScreen.itemTitleInput.setValue(testItem2);
-    await MoveItemsScreen.addNewItemBtn.click();
-    await MoveItemsScreen.itemTitleInput.setValue(testItem3);
+    const testItems = [
+        checklistItems.testItem1,
+        checklistItems.testItem2,
+        checklistItems.testItem3
+    ];
+    
+    for (const testItem of testItems) {
+        await MoveItemsScreen.addNewItemBtn.click();
+        await MoveItemsScreen.itemTitleInput.setValue(testItem);
+    }
+
     await MoveItemsScreen.inProcessElement.click();
     
     // assertion
@@ -49,15 +54,15 @@ class CompleteTaskByStepsScreen {
         return $('(//android.widget.CheckBox[@resource-id="android:id/checkbox"])[3]');
     }
 
-    progress33(text = value33) {
+    progress33(text = progressValues.value33) {
         return $(`//*[@text="${text}"]`);
     }
 
-    progress66(text = value66) {
+    progress66(text = progressValues.value66) {
         return $(`//*[@text="${text}"]`);
     }
 
-    progress100(text = value100) {
+    progress100(text = progressValues.value100) {
         return $(`//*[@text="${text}"]`);
     }
 

@@ -3,6 +3,10 @@ class AddPriorityTaskScreen {
         return $('(//android.widget.Spinner[@resource-id="org.dmfs.tasks:id/integer_choices_spinner"])[2]');
     }
 
+    get priorityMedium() {
+        return $('//*[@text="medium"]');
+    }
+
     async scrollToEnd() {
         await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)');
     }

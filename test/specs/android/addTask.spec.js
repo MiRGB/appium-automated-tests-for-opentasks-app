@@ -10,6 +10,9 @@ describe('Add task', () => {
         // add task title
         await AddTaskScreen.taskTitleInput.setValue(taskTitle1);
 
+        // assertion
+        await expect(AddTaskScreen.taskTitleInput).toHaveText(taskTitle1);
+
         // add task status
         await AddTaskScreen.taskStatusInput().click();
         await AddTaskScreen.inProcessStatus.click();
@@ -18,9 +21,16 @@ describe('Add task', () => {
     it('add checklist', async () => {
         // add checklist
         await AddTaskScreen.addChecklistBtn.click();
+
+        // assertion
         await AddTaskScreen.checklistInput.waitForDisplayed({ timeout: 5000 });
         await expect(AddTaskScreen.checklistInput).toBeDisplayed();
+
+        // set text element on list
         await AddTaskScreen.checklistInput.setValue(testTextList1);
+
+        // assertion
+        await expect(AddTaskScreen.checklistInput).toHaveText(testTextList1);
     });
 
     it('save the task', async () => {
