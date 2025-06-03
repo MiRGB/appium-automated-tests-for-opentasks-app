@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "(//android.widget.Spinner[@resource-id=\"org.dmfs.tasks:id/integer_choices_spinner\"])[2]"
+}

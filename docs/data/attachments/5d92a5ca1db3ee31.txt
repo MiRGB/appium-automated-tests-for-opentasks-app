@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.TextView[@resource-id=\"org.dmfs.tasks:id/checkbox_item_count\"]"
+}

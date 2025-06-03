@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.ImageButton[@resource-id=\"org.dmfs.tasks:id/floating_action_button\"]"
+}

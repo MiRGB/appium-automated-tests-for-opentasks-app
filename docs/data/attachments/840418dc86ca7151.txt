@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "(//android.widget.ImageView[@package=\"org.dmfs.tasks\"])[7]"
+}

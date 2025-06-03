@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.ProgressBar[@resource-id=\"org.dmfs.tasks:id/percentage_progress_bar\"]"
+}

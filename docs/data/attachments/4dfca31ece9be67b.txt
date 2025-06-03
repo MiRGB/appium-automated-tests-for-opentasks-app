@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "(//android.widget.Button[@resource-id=\"org.dmfs.tasks:id/task_time_picker\"])[1]"
+}

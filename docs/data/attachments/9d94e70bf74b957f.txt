@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.ExpandableListView[@resource-id=\"android:id/list\"]/android.widget.RelativeLayout[5]"
+}

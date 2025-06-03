@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.HorizontalScrollView[@resource-id=\"org.dmfs.tasks:id/tabs\"]/android.widget.LinearLayout/android.widget.LinearLayout[4]"
+}

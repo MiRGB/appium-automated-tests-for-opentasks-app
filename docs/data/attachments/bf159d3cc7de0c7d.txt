@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "(//android.widget.CheckBox[@resource-id=\"android:id/checkbox\"])[3]"
+}

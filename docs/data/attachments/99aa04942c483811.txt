@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.TextView[@resource-id='android:id/text2' and contains(@text, '1 task')]"
+}

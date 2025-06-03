@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.widget.AutoCompleteTextView[@resource-id=\"org.dmfs.tasks:id/search_src_text\"]"
+}
