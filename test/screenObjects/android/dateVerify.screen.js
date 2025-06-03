@@ -1,4 +1,4 @@
-import { clockTime, clockInfo, taskTitle1, dayToSelect } from "../../data/data";
+import { clockInfo, taskTitle1, dayToSelect } from "../../data/data";
 import AddTaskScreen from "./addTask.screen";
 
 class DateVerifyScreen {
@@ -54,10 +54,6 @@ class DateVerifyScreen {
         return $(`~${text}`);
     }
 
-    newTimeOfDay(text = clockInfo.timeAM) {
-        return $(`//*[@text="${text}"]`);
-    }
-
     get clockHours() {
         return $('//android.widget.TextView[@resource-id="android:id/hours"]');
     }
@@ -90,8 +86,8 @@ class DateVerifyScreen {
         return $('//android.widget.Button[@resource-id="android:id/button1"]');
     }
 
-    clockTimeBtn(text = clockTime) {
-        return $(`//*[@text="${text}"]`);
+    get clockTimeBtn() {
+        return $('(//android.widget.Button[@resource-id="org.dmfs.tasks:id/task_time_picker"])[1]');
     }
 }
 

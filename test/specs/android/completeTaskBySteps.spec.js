@@ -1,4 +1,3 @@
-
 import { taskTitle1, progressValues } from "../../data/data";
 import AddTaskScreen from "../../screenObjects/android/addTask.screen";
 import CompleteTaskByStepsScreen from "../../screenObjects/android/completeTaskBySteps.screen";

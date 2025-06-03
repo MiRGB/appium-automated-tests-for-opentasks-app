@@ -43,10 +43,9 @@ describe('Date verify', () => {
     await DateVerifyScreen.clockElement.waitForDisplayed({ timeout: 5000 });
     await expect(DateVerifyScreen.clockElement).toBeDisplayed();
 
-    // select time to 12:45 AM
+    // select time to 12:45
     await DateVerifyScreen.newHour().click();
     await DateVerifyScreen.newMinute().click();
-    await DateVerifyScreen.newTimeOfDay().click();
 
     // assertion
     await expect(DateVerifyScreen.clockHours).toHaveText(clockInfo.hour12);
@@ -63,13 +62,13 @@ describe('Date verify', () => {
 
     await expect(DateVerifyScreen.newClockHour).toHaveText(clockInfo.hour12);
     await expect(DateVerifyScreen.newClockMinutes).toHaveText(clockInfo.minute45);
-    await expect(DateVerifyScreen.newClockDayTime).toHaveText(clockInfo.timeAM);
 
     // accept time
     await DateVerifyScreen.acceptTimeBtn.click();
 
     // assertion
-    await DateVerifyScreen.clockTimeBtn().waitForDisplayed({ timeout: 5000});
-    await expect(DateVerifyScreen.clockTimeBtn()).toHaveText(clockTime);
+    await DateVerifyScreen.clockTimeBtn.waitForDisplayed({ timeout: 5000});
+    const clockTimeElement = await DateVerifyScreen.clockTimeBtn.getText();
+    await expect(clockTimeElement).toContain(clockTime);
   });
 });

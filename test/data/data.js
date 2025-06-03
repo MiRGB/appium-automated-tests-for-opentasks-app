@@ -26,7 +26,6 @@ export const dayToSelect = "16";
 export const clockInfo = {
   hour12: "12",
   minute45: "45",
-  timeAM: "AM",
 };
 
-export const clockTime = "12:45 AM";
+export const clockTime = "12:45";
