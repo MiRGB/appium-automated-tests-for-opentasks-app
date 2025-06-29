@@ -72,3 +72,8 @@ This command will open the most recent Allure report in your default browser. Th
 Make sure to check the Allure report on GitHub Pages for detailed test results:
 
 👉 [View Allure Test Report](https://mirgb.github.io/Appium_automated_tests_for_OpenTasks_app/)
+
+### 📄 Copyright Notice
+
+Copyright © MiRGB, 2025.  
+All rights reserved.
