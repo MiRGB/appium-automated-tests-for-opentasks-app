@@ -56,6 +56,8 @@ To run the tests on BrowserStack, use the following command:
 
 The repository contains configuration for automatically running tests using GitHub Actions. After each push to the main branch (e.g., `main`), the tests will automatically run on selected devices.
 
+> 🔧 **Note:** During the initial setup, one of the test runs failed due to a timeout issue when executing Appium tests on BrowserStack. The timeout was too short for the cloud environment to fully initialize and run the tests. This was resolved by increasing the timeout in the next commit. Since then, all GitHub Actions runs have passed consistently.
+
 ### ⚙️ Advanced Configuration
 
 Environment Variables  
